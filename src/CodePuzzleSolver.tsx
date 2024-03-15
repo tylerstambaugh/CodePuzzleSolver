@@ -1,17 +1,24 @@
-import React, { JSXElementConstructor, ReactElement, useState } from "react";
+import React, {
+  JSXElementConstructor,
+  ReactElement,
+  useEffect,
+  useState,
+} from "react";
 import { JsxElement } from "typescript";
 import useSolvePuzzle from "./useSolvePuzzle";
 
 export default function CodePuzzleSolver() {
-  const [solutions, setSolutions] = useState<
-    ReactElement<any, string | JSXElementConstructor<any>> | undefined
-  >();
+  const [solutions, setSolutions] = useState<JSX.Element | null>();
   const puzzle =
     "(id, name, email, type(id, name, customFields(c1, c2, c3)), externalId)";
   function handleSolvePuzzle() {
     const { solution } = useSolvePuzzle({ input: puzzle });
     setSolutions(solution);
   }
+
+  useEffect(() => {
+    // console.log("solutions2:", solutions);
+  }, [solutions]);
 
   return (
     <>
@@ -34,7 +41,7 @@ export default function CodePuzzleSolver() {
       <div>
         <p>Solution:</p>
         <p>
-          {!solutions
+          {!!solutions
             ? solutions
             : `Puzzle hasn't been solved yet. Please click the button.`}
         </p>
