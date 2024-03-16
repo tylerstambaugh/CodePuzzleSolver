@@ -4,38 +4,71 @@ export interface Puzzle {
   input: string;
 }
 
+type PuzzlePiece = {
+  name?: string;
+  children?: PuzzlePiece[];
+};
+
 export default function useSolvePuzzle({ input }: Puzzle) {
-  let puzzleArray: (string | string[])[] = [];
   const solution: JSX.Element = <></>;
 
-  const puzzleObject = buildPuzzleObject(input);
+  const puzzleObject = findPuzzlePieces(input);
 
   buildSolution(puzzleObject);
-
-  function buildPuzzleObject(input: string) {
-    let letterOrNumber: RegExp = /[a-zA-Z0-9]/;
-    let currentArray: string[] = [];
-    let currentWord = "";
+  // "(id, name, email, type(id, name, customFields(c1, c2, c3)), externalId)";
+  function findPuzzlePieces(input: string): PuzzlePiece[] {
+    let currentPiece: PuzzlePiece = { name: "" };
+    let puzzlePieces: PuzzlePiece[] = [];
+    console.log("puzzlePieces:", puzzlePieces);
+    console.log("input:", input);
 
     for (let i = 0; i < input.length; i++) {
-      //iterate through each letter.
-
-      //if it's a letter or number, add it to the current word.
-
-      //if it's a comma, add the current work to the array and reset the current word.
-
-      //if it is an open parenthesis, start working on a new array.
-
-      //if it is a close parenthesis, add the current array to the puzzle array array and reset the current array.
-      console.log("puzzleArray:", puzzleArray);
-
-      return puzzleObject;
+      let charToEval = input[i];
+      if (charToEval === " ") continue;
+      if (charToEval === "(") {
+        const closingParenIndex = findClosingParenIndex(input.slice(i));
+        const subInput = input.slice(i + 1, closingParenIndex + i);
+        const children = findPuzzlePieces(subInput);
+        puzzlePieces.push({
+          name: currentPiece.name,
+          children: children,
+        });
+        i += closingParenIndex;
+        currentPiece = { name: "" };
+      } else if (charToEval === ",") {
+        if (currentPiece.name !== "") {
+          puzzlePieces.push({ name: currentPiece.name });
+          currentPiece = { name: "" };
+        }
+      } else {
+        currentPiece.name += charToEval;
+      }
     }
+
+    if (currentPiece.name !== "") {
+      puzzlePieces.push({ name: currentPiece.name });
+    }
+    console.log("puzzlePieces:", puzzlePieces);
+    return puzzlePieces;
   }
 
-  function buildSolution(puzzleArray: string[][]) {
+  function findClosingParenIndex(input: string): number {
+    let count = 0;
+    for (let i = 0; i < input.length; i++) {
+      if (input[i] === "(") {
+        count++;
+      } else if (input[i] === ")") {
+        count--;
+        if (count === 0) {
+          return i;
+        }
+      }
+    }
+    return -1;
+  }
+  function buildSolution(puzzlePieceArray: PuzzlePiece[]) {
     //iterate through puzzle array, if item is array,
-    puzzleArray.map((item, index) => {
+    puzzlePieceArray.map((item, index) => {
       if (Array.isArray(item)) {
         solution: <>
           {solution}
