@@ -13,19 +13,30 @@ export default function CodePuzzleSolver() {
     setOrderedSolution(SolvePuzzle(puzzle, true));
   }
 
+  function handleReset() {
+    setSolution(null);
+    setOrderedSolution(null);
+  }
+
   return (
-    <>
+    <div className="container">
       <div>
         <p>
           {" "}
-          String to solve: "(id, name, email, type(id, name, customFields(c1,
-          c2, c3)), externalId)"
+          <span style={{ fontWeight: "bold" }}>Puzzle to solve:</span> "(id,
+          name, email, type(id, name, customFields(c1, c2, c3)), externalId)"
         </p>
       </div>
 
-      <div>
-        <button onClick={handleSolvePuzzle}>Click to solve</button>
-      </div>
+      {!solution && !orderedSolution ? (
+        <div>
+          <button onClick={handleSolvePuzzle}>Click to solve</button>
+        </div>
+      ) : (
+        <div>
+          <button onClick={handleReset}>Reset</button>
+        </div>
+      )}
 
       <div>
         <h3>Solution:</h3>
@@ -36,7 +47,7 @@ export default function CodePuzzleSolver() {
         </p>
       </div>
       <div>
-        <h3>Ordered Solution</h3>
+        <h3>Ordered Solution:</h3>
         <p>
           {!!orderedSolution
             ? orderedSolution
@@ -64,6 +75,6 @@ export default function CodePuzzleSolver() {
           </li>
         </ul>
       </div>
-    </>
+    </div>
   );
 }

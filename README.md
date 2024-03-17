@@ -1,4 +1,11 @@
-# Nano React App Default Javascript Template
+# Nano React AppCode Challenge Solver
+
+Thank you for taking the time to review my submission. A few notes about my solution.
+
+- I went with a nano-react-app because it was something super light to spin up and would be easy for you to work with.
+- I thought something browser based would be best, not relying on any particular machine specific run-times or packages, you just need a modern browser.
+- Initially, I was manually/brute forcing the object creation, but ran into issues based on the structure of the string with the array being either a name, or a name with children. Eventually recursion won out.
+- Considerations were given to adding additional styling, including Bootstrap and Font-Awesome icons but in the end I didn't feel that added anything of value to what you are probably looking for.
 
 The default template project for [nano-react-app](https://github.com/nano-react-app/nano-react-app).
 
@@ -33,7 +40,6 @@ import "./index.css";
 The Babel preset [babel-preset-nano-react-app](https://github.com/nano-react-app/babel-preset-nano-react-app) is used to support the same transforms that Create React App supports.
 
 The Babel configuration lives inside `package.json` and will override an external `.babelrc` file, so if you want to use `.babelrc` remember to delete the `babel` property inside `package.json`.
-
 
 ## Deploy to GitHub Pages
 
