@@ -1,12 +1,12 @@
 import React from "react";
 import CodePuzzleSolver from "./CodePuzzleSolver";
-import redRoverLogo from "./public/Red_Rover__Logo.jpg";
+
 import "./App.css";
 
 export default () => (
   <div className="container">
     <img
-      src={redRoverLogo}
+      src="https://mma.prnewswire.com/media/2164330/Red_Rover__Logo.jpg"
       alt="Red Rover Logo"
       width="250"
       height="200"
