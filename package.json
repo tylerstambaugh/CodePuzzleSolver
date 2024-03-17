@@ -1,8 +1,7 @@
 {
   "name": "CodePuzzleSolver",
   "version": "0.1.0",
-  "homepage": "https://tylerstambaugh.github.io/CodePuzzleSolver/",
-  
+  "homepage": "https://tylerstambaugh.github.io/CodePuzzleSolver/",  
   "description": "",
   "license": "MIT",
   "scripts": {
