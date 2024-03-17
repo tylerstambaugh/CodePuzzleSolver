@@ -3,8 +3,7 @@ import CodePuzzleSolver from "./CodePuzzleSolver";
 
 export default () => (
   <>
-    <h1>Welcome to React Vite Micro App!</h1>
-    <p>Hard to get more minimal than this React app.</p>
+    <h1>React Vite Micro App - Red Rove Code Challenge</h1>
 
     <CodePuzzleSolver />
   </>

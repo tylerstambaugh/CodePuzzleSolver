@@ -39,7 +39,6 @@ export default function SolvePuzzle(input: string, ordered: boolean = false) {
     if (currentPiece.name !== "") {
       puzzlePieces.push({ name: currentPiece.name });
     }
-    console.log("puzzlePieces:", puzzlePieces);
     return puzzlePieces;
   }
 
@@ -72,14 +71,12 @@ export default function SolvePuzzle(input: string, ordered: boolean = false) {
     }
 
     puzzlePieceArray.forEach((item, index) => {
-      console.log("item:", item, "index:", index, "level:", level);
-
-      const marginLeft = `${level * 20}px`;
+      const marginLeft = `${level * 10}px`;
 
       if (item.children && item.children.length > 0) {
         solutionElements.push(
           <div key={index} style={{ marginLeft }}>
-            <div>{item.name}</div>
+            {item.name ? <div>- {item.name}</div> : null}
             {buildSolution(item.children, level + 1, ordered)}
           </div>
         );
