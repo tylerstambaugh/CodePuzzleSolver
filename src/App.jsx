@@ -1,10 +1,19 @@
 import React from "react";
 import CodePuzzleSolver from "./CodePuzzleSolver";
+import redRoverLogo from "./public/Red_Rover__Logo.jpg";
+import "./App.css";
 
 export default () => (
-  <>
-    <h1>React Vite Micro App - Red Rove Code Challenge</h1>
+  <div className="container">
+    <img
+      src={redRoverLogo}
+      alt="Red Rove Logo"
+      width="250"
+      height="200"
+      style={{ paddingTop: "15px" }}
+    />
+    <h1>Code Challenge</h1>
 
     <CodePuzzleSolver />
-  </>
+  </div>
 );
