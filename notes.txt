@@ -1,7 +1,0 @@
-"(id, name, email, type(id, name, customFields(c1, c2, c3)), externalId)";
-
-first: [id, name, email, type, externalID]
-second: type[id, name, customFields]
-third: customFields[c1, c2, c3]
-
-testing gh-pages publish... 
