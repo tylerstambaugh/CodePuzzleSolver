@@ -1,5 +1,5 @@
 {
-  "name": "CodePuzzleSolver",
+  "name": "codepuzzlesolver",
   "version": "0.1.0",
   "homepage": "https://tylerstambaugh.github.io/CodePuzzleSolver/",
   
@@ -9,7 +9,7 @@
     "start": "vite",
     "build": "vite build",
     "predeploy": "rimraf dist && vite build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "@types/jest": "^29.5.12",
