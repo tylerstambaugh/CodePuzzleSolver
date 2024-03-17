@@ -7,7 +7,7 @@ export default () => (
   <div className="container">
     <img
       src={redRoverLogo}
-      alt="Red Rove Logo"
+      alt="Red Rover Logo"
       width="250"
       height="200"
       style={{ paddingTop: "15px" }}
