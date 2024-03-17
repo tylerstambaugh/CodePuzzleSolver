@@ -1,24 +1,17 @@
-import React, {
-  JSXElementConstructor,
-  ReactElement,
-  useEffect,
-  useState,
-} from "react";
+import React, { useState } from "react";
+import SolvePuzzle from "./SolvePuzzle";
 import { JsxElement } from "typescript";
-import useSolvePuzzle from "./useSolvePuzzle";
 
 export default function CodePuzzleSolver() {
-  const [solutions, setSolutions] = useState<JSX.Element | null>();
+  const [solution, setSolution] = useState<JSX.Element | null>();
+  const [orderedSolution, setOrderedSolution] = useState<JSX.Element | null>();
   const puzzle =
     "(id, name, email, type(id, name, customFields(c1, c2, c3)), externalId)";
-  function handleSolvePuzzle() {
-    const { solution } = useSolvePuzzle({ input: puzzle });
-    setSolutions(solution);
-  }
 
-  useEffect(() => {
-    // console.log("solutions2:", solutions);
-  }, [solutions]);
+  function handleSolvePuzzle() {
+    setSolution(SolvePuzzle(puzzle));
+    setOrderedSolution(SolvePuzzle(puzzle, true));
+  }
 
   return (
     <>
@@ -39,11 +32,19 @@ export default function CodePuzzleSolver() {
       </div>
 
       <div>
-        <p>Solution:</p>
+        <h3>Solution:</h3>
         <p>
-          {!!solutions
-            ? solutions
+          {!!solution
+            ? solution
             : `Puzzle hasn't been solved yet. Please click the button.`}
+        </p>
+      </div>
+      <div>
+        <h3>Ordered Solution</h3>
+        <p>
+          {!!orderedSolution
+            ? orderedSolution
+            : `Ordered Puzzle hasn't been solved yet.  Please click the button.`}
         </p>
       </div>
     </>
