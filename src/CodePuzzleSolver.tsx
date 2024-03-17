@@ -16,10 +16,6 @@ export default function CodePuzzleSolver() {
   return (
     <>
       <div>
-        <h1>Code Puzzle Solver</h1>
-      </div>
-
-      <div>
         <p>
           {" "}
           String to solve: "(id, name, email, type(id, name, customFields(c1,
@@ -46,6 +42,27 @@ export default function CodePuzzleSolver() {
             ? orderedSolution
             : `Ordered Puzzle hasn't been solved yet.  Please click the button.`}
         </p>
+      </div>
+      <div>
+        <h4>
+          Thank you for considering me for employment. For more info, please
+          check out:
+        </h4>
+        <ul className="">
+          <li>
+            <a href="https://www.linkedin.com/in/tyler-stambaugh-b274a59/">
+              LinkedIn{" "}
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/tylerstambaugh">Github </a>
+          </li>
+          <li>
+            <a href="https://tylerstambaugh.github.io/ProfessionalPortfolio/">
+              Professional Profile{" "}
+            </a>
+          </li>
+        </ul>
       </div>
     </>
   );
