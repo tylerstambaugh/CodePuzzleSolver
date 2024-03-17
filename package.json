@@ -1,15 +1,16 @@
 {
   "name": "CodePuzzleSolver",
   "version": "0.1.0",
+  "homepage": "https://tylerstambaugh.github.io/CodePuzzleSolver/",
+  
   "description": "",
   "license": "MIT",
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "predeploy": "rm -rf dist && vite build",
+    "predeploy": "rimraf dist && vite build",
     "deploy": "gh-pages -d dist"
   },
-  
   "dependencies": {
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.27",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "babel-preset-nano-react-app": "^0.1.0",
     "gh-pages": "^6.1.1",
+    "rimraf": "^5.0.5",
     "vite": "^4.5.2"
   },
   "babel": {
