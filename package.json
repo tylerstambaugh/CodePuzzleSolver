@@ -5,9 +5,11 @@
   "license": "MIT",
   "scripts": {
     "start": "vite",
-    "preview": "vite preview",
-    "build": "vite build"
+    "build": "vite build",
+    "predeploy": "rm -rf dist && vite build",
+    "deploy": "gh-pages -d dist"
   },
+  
   "dependencies": {
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.27",
