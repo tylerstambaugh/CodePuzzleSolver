@@ -61,17 +61,35 @@ export default function CodePuzzleSolver() {
         </h4>
         <ul className="">
           <li>
-            <a href="https://www.linkedin.com/in/tyler-stambaugh-b274a59/">
+            <a
+              href="https://www.linkedin.com/in/tyler-stambaugh-b274a59/"
+              target="_blank"
+            >
               LinkedIn{" "}
             </a>
           </li>
           <li>
-            <a href="https://github.com/tylerstambaugh">Github </a>
+            <a href="https://github.com/tylerstambaugh" target="_blank">
+              Github{" "}
+            </a>
           </li>
           <li>
-            <a href="https://tylerstambaugh.github.io/ProfessionalPortfolio/">
+            <a
+              href="https://tylerstambaugh.github.io/ProfessionalPortfolio/"
+              target="_blank"
+            >
               Professional Profile{" "}
             </a>
+          </li>
+          <li>
+            <a
+              href="https://as-segmentsniper-frontend-eastus-dev.azurewebsites.net/#/"
+              target="_blank"
+            >
+              Segment Sniper
+            </a>{" "}
+            ***This is my full stack app, hosted in Azure that is in alpha. App
+            service may be stopped and app uptime is not guaranteed.***{" "}
           </li>
         </ul>
       </div>
